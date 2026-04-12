@@ -10,9 +10,9 @@ resource "google_storage_bucket" "bucket"{
 }
 
 resource "google_compute_instance" "vm"{
-    name = "github-vm"
-    zone = "us-central1-a"
-    machine_type = "e2-micro"
+    name = var.vm_name
+    zone = var.zone
+    machine_type = var.machine_type
     boot_disk{
             initialize_params {
                image = "debian-cloud/debian11"
