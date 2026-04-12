@@ -21,4 +21,27 @@ resource "google_compute_instance" "vm"{
     network_interface{
         network = "default"
     }
+    metadata_startup_script = <<-EOF
+ #!/bin/bash
+
+ sudo apt-get update -y
+
+ # install docker
+ sudo apt-get install -y docker.io git
+
+ # start docker
+ sudo systemctl start docker
+ sudo systemctl enable docker
+
+ #copy github repo
+ cd /home
+ git clone https://github.com/ravindrarockz9999/my-website.git
+ cd my-website
+
+ # Build docker image
+ docker build -t my-website .
+
+ # Run the container
+ docker run -d -p 80:80 my-website
+ EOF
 }
