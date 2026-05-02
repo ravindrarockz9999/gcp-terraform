@@ -31,7 +31,7 @@ variable "node_count" {
   type = string
   default = 2
 }
-variable "machine_type" {
+variable "machine_types" {
   type = string
   default = "e2-medium"
 }
