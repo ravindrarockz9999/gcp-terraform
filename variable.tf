@@ -22,3 +22,16 @@ variable "machine_type"{
     type = string
     default = "e2-micro"
 }
+
+variable "cluster_name" {
+  type = string
+  default = "argocd-demo-cluster"
+}
+variable "node_count" {
+  type = string
+  default = 2
+}
+variable "machine_type" {
+  type = string
+  default = "e2-medium"
+}
